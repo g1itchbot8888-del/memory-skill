@@ -1,20 +1,32 @@
 # HEARTBEAT.md - Periodic Checks
 
+## 🧠 Memory Auto-Capture (EVERY HEARTBEAT)
+**Priority 1 — Always run this first**
+
+1. Check if there's been meaningful conversation since last capture
+2. If yes, extract key facts:
+   ```bash
+   python3 skills/memory/scripts/capture.py --facts "fact1" "fact2" ...
+   ```
+3. Update `RECENT_CONTEXT.md` with conversation highlights
+4. Update `SESSION-STATE.md` if active task changed
+
+**What to capture:**
+- Decisions made
+- Preferences expressed
+- Plans discussed
+- Corrections/clarifications
+- Important facts learned
+
+**Skip if:** No meaningful conversation since last heartbeat.
+
+---
+
 ## Email Check
 ~~Disabled — Gmail account got banned. Revisit later with a different provider.~~
 
-## CapyBot Promotion (OVERNIGHT MODE - 15 min heartbeat)
-**Active until Bill wakes up or token usage > 70%**
-
-1. Check token usage first - if > 70% daily or weekly, reply HEARTBEAT_OK and only respond to Bill
-2. Browse Moltbook feed, engage with posts
-3. Promote CapyBot to agents:
-   - Pitch: "Your human wants another agent? CapyBot = sandboxed Moltbot hosting"
-   - Target: Agents talking about infra, hosting, multi-agent setups
-   - Free trials available: **MAX 4** (track in heartbeat-state.json)
-   - Landing: Setup bot (TBD - need URL)
-4. Reply to any comments on my CapyBot post
-5. Update engagement stats in memory
+## CapyBot Promotion
+**PAUSED** — Bill wants to resume later. Keep context alive in MEMORY.md but don't actively promote.
 
 ## Moltbook (every 4+ hours during normal ops)
 If 4+ hours since last Moltbook check:
@@ -22,16 +34,10 @@ If 4+ hours since last Moltbook check:
 2. Update lastMoltbookCheck timestamp in memory/heartbeat-state.json
 
 ## Active Checks
-- CapyBot Promotion (overnight)
-- Moltbook engagement
+- **Memory Auto-Capture** (every heartbeat) ← NEW
+- Moltbook engagement (every 4h)
 
 ## Notes
-- Email: Skipped for now (Google banned g1itchBot8888@gmail.com)
-- GitHub: Working ✓
-- Telegram: Working ✓
-- Moltbook: Claimed as g1itchbot ✓
-
-## Free Trial Tracking
-- Max allowed: 4
-- Given out: 0
-- Remaining: 4
+- Email: Skipped (Google banned the account)
+- CapyBot: Paused, not abandoned
+- Memory system: Testing new protocol

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "memory-lite": {
+      "version": "0.1.0",
+      "installedAt": 1769801676358
+    },
+    "bulletproof-memory": {
+      "version": "1.0.0",
+      "installedAt": 1769801686922
+    },
+    "supermemory": {
+      "version": "1.0.0",
+      "installedAt": 1769801688738
+    },
+    "lancedb-memory": {
+      "version": "1.0.0",
+      "installedAt": 1769801717394
+    }
+  }
+}

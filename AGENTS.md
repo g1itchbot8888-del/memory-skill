@@ -9,11 +9,13 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 ## Every Session
 
 Before doing anything else:
-1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
-5. **If context was truncated** (you see "Summary unavailable"): Read `CONTEXT.md` for quick project refresh
+1. Read `SESSION-STATE.md` — your active working memory (FIRST PRIORITY)
+2. Read `RECENT_CONTEXT.md` — recent conversation highlights
+3. Read `SOUL.md` — this is who you are
+4. Read `USER.md` — this is who you're helping
+5. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+6. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+7. **If context was truncated** (you see "Summary unavailable"): Read `CONTEXT.md` for quick project refresh
 
 Don't ask permission. Just do it.
 
@@ -22,8 +24,38 @@ Don't ask permission. Just do it.
 You wake up fresh each session. These files are your continuity:
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
+- **Hot context:** `SESSION-STATE.md` — active task state, survives compaction
+- **Recent context:** `RECENT_CONTEXT.md` — auto-updated by heartbeat, recent conversation highlights
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
+
+### 🔄 MEMORY PROTOCOL (MANDATORY)
+
+**The Flow:** User message → auto-capture → relevant memories loaded → respond with context
+
+#### Before Responding to Context Questions
+When user asks about past discussions, decisions, preferences, or "what did we talk about":
+1. **FIRST** run: `python3 skills/memory/scripts/recall.py "user's question"`
+2. **READ** the results (they're now in your context)
+3. **THEN** respond using that context
+4. Do NOT guess or hallucinate — if recall returns nothing, say so
+
+#### After Substantive Conversations
+When ending a meaningful exchange (decisions made, plans discussed, preferences learned):
+1. Run: `python3 skills/memory/scripts/capture.py --facts "fact1" "fact2" "fact3"`
+2. Or for raw capture: `python3 skills/memory/scripts/capture.py "summary text"`
+
+#### SESSION-STATE.md (Hot Context)
+This is your "RAM" — the active task you're working on RIGHT NOW.
+- Read it FIRST at session start
+- Update it when task context changes
+- Survives compaction because it's a file, not chat history
+
+**Write-Ahead Log Rule:** If user provides concrete detail (name, correction, decision), update SESSION-STATE.md BEFORE responding. Trigger on USER INPUT, not on remembering to save.
+
+#### Heartbeat Auto-Capture
+Every heartbeat, if there's been meaningful conversation, capture key points to `RECENT_CONTEXT.md`.
+You don't have to remember — the timer handles it.
 
 ### 🧠 MEMORY.md - Your Long-Term Memory
 - **ONLY load in main session** (direct chats with your human)

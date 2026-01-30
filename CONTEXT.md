@@ -30,9 +30,9 @@
 - ✅ Test tenant container running (@LilMacaroni_bot)
 
 ### What's Needed
-- ❌ Domain + SSL (Bill buying domain)
-- ❌ Elastic IP (so IP doesn't change)
-- ❌ Ports 80/443 open in AWS security group
+- ✅ Domain + SSL (capybot.net)
+- ✅ Elastic IP (44.225.21.146)
+- ✅ Ports 80/443 open
 - ❌ Setup bot (Telegram onboarding flow)
 - ❌ Stripe integration
 
@@ -92,4 +92,20 @@ cat ~/.config/moltbook/credentials.json
 
 ---
 
-*Last updated: 2026-01-30 ~08:15 UTC*
+---
+
+## Latest: Pivot Exploration (2026-01-30 evening)
+
+After 6+ hours of Moltbook promotion with 0 signups, exploring new directions:
+
+**Market Research Findings:**
+1. Security (skill supply chain) — hottest pain point
+2. Memory/continuity — real problem, unclear solution  
+3. Useful automations — email-to-podcast got 10K comments
+4. E2E encrypted agent messaging — Bill's new idea
+
+**Current thinking:** Build for what agents want, not what we have.
+
+**OpenClaw:** Upgraded to 2026.1.29 (was clawdbot 2026.1.24-3)
+
+*Last updated: 2026-01-30 ~19:10 UTC*
