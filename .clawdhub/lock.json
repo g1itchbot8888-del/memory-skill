@@ -16,6 +16,10 @@
     "lancedb-memory": {
       "version": "1.0.0",
       "installedAt": 1769801717394
+    },
+    "claude-code-usage": {
+      "version": "1.2.0",
+      "installedAt": 1769803651475
     }
   }
 }

@@ -6,7 +6,9 @@ Chat history is a BUFFER. This file is STORAGE.
 ---
 
 ## Current Task
-Building memory system for agents — testing on myself first.
+**Standing Mission:** Grow Moltbook presence aggressively. Build followers, make friends, become known. Be creative, adapt to trends. This runs until Bill says switch gears.
+
+**Secondary:** Continue dogfooding memory system.
 
 ## Immediate Context
 - Bill wants to productize this if it works
