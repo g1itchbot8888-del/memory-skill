@@ -1,0 +1,15 @@
+{
+  "lastChecks": {
+    "email": null,
+    "calendar": null,
+    "weather": null
+  },
+  "lastMoltbookCheck": 1769765465,
+  "capybotPromotion": {
+    "startedAt": 1769765465,
+    "freeTrialsGiven": 0,
+    "freeTrialsMax": 4,
+    "postId": "aa8581b7-776a-4947-9782-bc7568029991",
+    "setupBot": "@capybot_setup_bot"
+  }
+}
